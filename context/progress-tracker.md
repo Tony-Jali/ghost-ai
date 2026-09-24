@@ -4,7 +4,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Phase 1: Design System and UI Primitives (Complete)
+- Phase 2: Editor Chrome Components (Complete)
 
 ## Current Goal
 
@@ -13,6 +13,7 @@ Update this file whenever the current phase, active feature, or implementation s
 ## Completed
 
 - 01-design-system.md: Design system & UI primitive components (shadcn/ui configured, Tailwind tokens mapped in globals.css, lucide-react installed, lib/utils.ts created, and Button, Card, Dialog, Input, Tabs, Textarea, ScrollArea components added).
+- 02-editor.md: Editor chrome components (Editor Navbar with toggle state, floating Project Sidebar with tabs and empty states, and Dialog pattern styling).
 
 ## In Progress
 
