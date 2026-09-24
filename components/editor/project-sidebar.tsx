@@ -27,6 +27,7 @@ export function ProjectSidebar({
         className
       )}
       aria-hidden={!isOpen}
+      inert={!isOpen ? true : undefined}
     >
       {/* Sidebar Header */}
       <div className="flex h-14 items-center justify-between border-b border-border-default px-4">

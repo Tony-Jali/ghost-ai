@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 export interface EditorNavbarProps {
   isSidebarOpen?: boolean;
   onToggleSidebar?: () => void;
+  toggleButtonRef?: React.Ref<HTMLButtonElement>;
   title?: string;
   children?: React.ReactNode;
   className?: string;
@@ -16,6 +17,7 @@ export interface EditorNavbarProps {
 export function EditorNavbar({
   isSidebarOpen = false,
   onToggleSidebar,
+  toggleButtonRef,
   title = "Ghost AI",
   children,
   className,
@@ -29,6 +31,7 @@ export function EditorNavbar({
     >
       <div className="flex items-center gap-3">
         <Button
+          ref={toggleButtonRef}
           variant="ghost"
           size="icon"
           onClick={onToggleSidebar}

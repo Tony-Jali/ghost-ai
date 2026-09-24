@@ -19,6 +19,8 @@ export function EditorLayout({
   className,
 }: EditorLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const toggleButtonRef = React.useRef<HTMLButtonElement>(null);
+  const wasSidebarOpen = React.useRef(isSidebarOpen);
 
   const toggleSidebar = React.useCallback(() => {
     setIsSidebarOpen((prev) => !prev);
@@ -27,6 +29,13 @@ export function EditorLayout({
   const closeSidebar = React.useCallback(() => {
     setIsSidebarOpen(false);
   }, []);
+
+  React.useEffect(() => {
+    if (wasSidebarOpen.current && !isSidebarOpen) {
+      toggleButtonRef.current?.focus();
+    }
+    wasSidebarOpen.current = isSidebarOpen;
+  }, [isSidebarOpen]);
 
   return (
     <div
@@ -37,6 +46,7 @@ export function EditorLayout({
     >
       {/* Top Navbar */}
       <EditorNavbar
+        toggleButtonRef={toggleButtonRef}
         isSidebarOpen={isSidebarOpen}
         onToggleSidebar={toggleSidebar}
         title={navbarTitle}
@@ -55,7 +65,7 @@ export function EditorLayout({
         />
 
         {/* Center Canvas / Content Surface */}
-        <main className="relative flex flex-1 flex-col overflow-hidden bg-bg-base">
+        <main className="relative flex flex-1 flex-col overflow-x-hidden overflow-y-auto bg-bg-base">
           {children}
         </main>
       </div>
